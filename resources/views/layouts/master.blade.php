@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>AdminLTE 3 | Starter</title>
+    <title>CORESTONE | SalesMGR</title>
 
     <link rel="stylesheet" href="/css/app.css">
 </head>
@@ -41,10 +41,8 @@
                     </div>
                 </div>
             </form>
-
         </nav>
         <!-- /.navbar -->
-
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -52,7 +50,6 @@
                 <img src="./img/star.png" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">SalesMGR</span>
             </a>
-
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -61,18 +58,18 @@
                         <img src="./img/happy.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                        <a href="#" class="d-block "><span class="green">{{ Auth::user()->name }}</span></a>
                     </div>
                 </div>
 
-            <!-- Sidebar Menu -->
+                <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <router-link to="/dashboard" class="nav-link">
-                                <i class="nav-icon fa fa-tachometer-alt"></i>
+                                <i class="nav-icon fa fa-tachometer-alt blue"></i>
                                 <p>
                                     Dashboard
                                     <span class="right badge badge-danger">New</span>
@@ -81,8 +78,8 @@
                         </li>
 
                         <li class="nav-item has-treeview ">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fa fa-cog"></i>
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fa fa-cog green"></i>
                                 <p>
                                     Starter Pages
                                     <!-- <i class="right fas fa-angle-left"></i> -->
@@ -91,7 +88,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
+                                    <a href="#" class="nav-link ">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>Active Page</p>
                                     </a>
@@ -105,25 +102,30 @@
                             </ul>
                         <li class="nav-item">
                             <router-link to="/profile" class="nav-link">
-                                <i class="nav-icon fa fa-user"></i>
+                                <i class="nav-icon fa fa-user orange"></i>
                                 <p>
                                     Profile
                                 </p>
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-power-off"></i>
+
+                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                <i class="nav-icon fa fa-power-off red"></i>
                                 <p>
-                                    Logout
+                                    {{ __('Logout') }}
                                 </p>
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                         </li>
 
                     </ul>
                 </nav>
-                
+
             </div>
             <!-- /.sidebar -->
         </aside>
