@@ -1,3 +1,4 @@
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -8,6 +9,24 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+let routes = [
+    { path: '/dashboard', component: require('./components/Dashboard.vue').default },
+    { path: '/profile', component: require('./components/Profile.vue').default }
+]
+
+const router = new VueRouter({
+    // mode: 'history',
+    routes
+});
+
+
+const app = new Vue({
+    el: '#app',
+    router
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,6 +38,8 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+// Vue.component('Dashboard', require('./components/Dashboard.vue').default);
+// Vue.component('Profile', require('./components/Profile.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -27,6 +48,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+

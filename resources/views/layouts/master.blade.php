@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>AdminLTE 3 | Starter</title>
 
     <link rel="stylesheet" href="/css/app.css">
 </head>
 
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
+<body class="hold-transition sidebar-mini ">
+    <div class="wrapper" id="app">
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -63,19 +65,19 @@
                     </div>
                 </div>
 
-                <!-- Sidebar Menu -->
+            <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <router-link to="/dashboard" class="nav-link">
                                 <i class="nav-icon fa fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
                                     <span class="right badge badge-danger">New</span>
                                 </p>
-                            </a>
+                            </router-link>
                         </li>
 
                         <li class="nav-item has-treeview ">
@@ -102,12 +104,12 @@
                                 </li>
                             </ul>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <router-link to="/profile" class="nav-link">
                                 <i class="nav-icon fa fa-user"></i>
                                 <p>
                                     Profile
                                 </p>
-                            </a>
+                            </router-link>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -121,7 +123,7 @@
 
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
+                
             </div>
             <!-- /.sidebar -->
         </aside>
@@ -129,10 +131,11 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
 
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
+
+                    <router-view></router-view>
 
                 </div><!-- /.container-fluid -->
             </div>
